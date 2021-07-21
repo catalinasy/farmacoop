@@ -10,12 +10,12 @@ body,
 body * {
   box-sizing: border-box;
   font-family: "Farmacoop", sans-serif;
-  color: #222;
+  color: #4e4e4e;
 }
 
 body > header {
   top: 0;
-  z-index: 9;
+  z-index: 20;
   width: 100vw;
   @include transition;
 
@@ -205,7 +205,7 @@ html.menu-opened {
 
 #hero {
   .title {
-    max-width: 39rem;
+    max-width: 60rem;
   }
 }
 
@@ -231,7 +231,8 @@ html.menu-opened {
   }
 }
 
-#commitment {
+#commitment,
+#services {
   .block {
     border-radius: 1.2rem;
     overflow: hidden;
@@ -242,6 +243,12 @@ html.menu-opened {
       object-fit: cover;
       object-position: center;
     }
+  }
+}
+
+#services {
+  .block img {
+    height: 18rem;
   }
 }
 
@@ -298,6 +305,75 @@ footer {
 
   * {
     color: #fff;
+  }
+}
+
+body.aqualane {
+  @media (max-width: 1024px) {
+    & > header:not(.collapse) {
+      background: rgba(20, 29, 63, 0.3);
+
+      transform: translateY(2rem);
+      z-index: 20;
+      .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      #logo-link {
+        margin: 0;
+        #logo {
+          width: 5rem;
+        }
+      }
+    }
+  }
+  #landing {
+    background: linear-gradient(90deg, #11a5ff 0%, #118ff3 100%) no-repeat;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: auto;
+    display: flex;
+    padding-top: 0;
+
+    img {
+      position: absolute;
+      transform: translateX(calc(50%));
+      right: 30vw;
+      height: 110vh;
+      width: auto;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      bottom: 6vh;
+    }
+    .container {
+      .text {
+        z-index: 10;
+        margin-bottom: 5vh;
+        filter: drop-shadow(0px 0px 15px rgba(5, 17, 38, 0.865));
+        @media (min-width: 1024px) {
+          filter: none;
+          margin-bottom: 11vh;
+        }
+        .title {
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
+          @media (min-width: 1024px) {
+            font-size: 6rem;
+            margin-bottom: 0rem;
+          }
+        }
+      }
+      * {
+        color: #fff;
+      }
+    }
+  }
+
+  #contact #contact-list {
+    .text,
+    .text * {
+      color: #222;
+    }
   }
 }
 
@@ -397,11 +473,11 @@ footer {
 
 .title {
   position: relative;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 900;
   color: #4e4e4e;
   line-height: 1.15;
-  margin: 0 0 2rem;
+  margin: 0;
 
   @media (min-width: 1024px) {
     font-size: 2.8rem;
@@ -512,4 +588,49 @@ section {
 
 #topbar a:hover img {
   filter: grayscale(0);
+}
+
+.border-main-dark-color {
+  border-color: var(--main-dark-color);
+}
+
+ul.list li {
+  position: relative;
+  padding-left: 1.5rem;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    // transform: translateY(-50%);
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #11a5ff 0%, #118ff3 100%) no-repeat;
+  }
+}
+
+#contact-whatsapp {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 999;
+  border-radius: 50%;
+  height: 3.3rem;
+  width: 3.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 11px 0px rgba(17, 17, 17, 0.11);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  @media (min-width: 1024px) {
+    bottom: 2rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+  }
 }
